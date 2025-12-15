@@ -30,9 +30,9 @@ GOOG, TSLA, AMZN, META, NVDA
 cd server
 npm install
 npm start
-
+ Fr
 ### Frontend
-
+```bash
 cd client
 npm install
 npm run dev
