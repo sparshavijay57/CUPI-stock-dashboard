@@ -39,8 +39,3 @@ cd client
 npm install
 npm run dev
 ```
-
-## Notes
-- Backend runs on port 5000
-- Frontend runs on port 5173
-- Application runs on localhost
