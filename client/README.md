@@ -23,11 +23,3 @@ GOOG, TSLA, AMZN, META, NVDA
 ## Folder Structure
 - `client/` → Frontend code
 - `server/` → Backend code
-
-## How to Run Locally
-
-### Backend
-```bash
-cd server
-npm install
-npm start

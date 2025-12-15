@@ -20,10 +20,12 @@ export default function Login({ onLogin }) {
           <label className="input-label">
             <FiMail />
             <input
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            placeholder="your@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             />
+
           </label>
           <button className="btn primary" type="submit">Enter</button>
         </form>

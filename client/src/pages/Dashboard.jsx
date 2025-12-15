@@ -28,7 +28,7 @@ export default function Dashboard({ email, onLogout }) {
     socket.connect();
     socket.emit("identify", { email });
 
-    // get initial subs (server will send prices for subs on identify)
+    // get initial subs
     socket.emit("get-subs", { email });
     socket.on("subs", (list) => setSubs(new Set(list)));
 
@@ -87,22 +87,30 @@ export default function Dashboard({ email, onLogout }) {
       </header>
 
       <main className="stocks-grid">
-        {supported.map(sym => {
+        {supported.map((sym, index) => {
           const cur = prices[sym] ?? 0;
           const prev = prevPrices.current[sym] ?? cur;
           const delta = cur - prev;
           const spark = sparks[sym] || [cur];
           return (
-            <StockCard
-              key={sym}
-              symbol={sym}
-              price={cur}
-              delta={delta}
-              spark={spark}
-              isSubscribed={subs.has(sym)}
-              onToggle={toggle}
-            />
-          );
+  <div
+    key={sym}
+    style={{
+      animation: "fadeUp 0.5s ease forwards",
+      animationDelay: `${index * 250}ms`,
+      opacity: 0
+    }}
+  >
+    <StockCard
+      symbol={sym}
+      price={cur}
+      delta={delta}
+      spark={spark}
+      isSubscribed={subs.has(sym)}
+      onToggle={toggle}
+    />
+  </div>
+);
         })}
       </main>
 
